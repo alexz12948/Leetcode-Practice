@@ -53,6 +53,9 @@ def generate_folder(problem_number: int, problem_title: str, problem_md: str):
     file.write('''// TODO REMOVE
 #include <iostream>
 using namespace std;
+
+/* Time: O()
+ * Space: O() */
 class Solution {
 public:
 
