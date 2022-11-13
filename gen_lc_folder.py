@@ -50,7 +50,13 @@ def generate_folder(problem_number: int, problem_title: str, problem_md: str):
     file.write(problem_md)
 
   with open(f'{problem_dir}/sol.cpp', 'w') as file:
-    file.write('class Solution {\npublic:\n\n};')
+    file.write('''// TODO REMOVE
+#include <iostream>
+using namespace std;
+class Solution {
+public:
+
+};''')
 
 def scrape_prompt(lc_problem_url: str) -> str:
   '''
