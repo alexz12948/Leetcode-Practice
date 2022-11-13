@@ -1,3 +1,6 @@
+
+/* Time Complexity: O((R - L) * logR)
+ * Space Complexity: O(R - L) */
 class Solution {
 public:
   vector<int> selfDividingNumbers(int left, int right) {
