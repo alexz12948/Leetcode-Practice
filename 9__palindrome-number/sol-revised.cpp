@@ -1,3 +1,5 @@
+/* Time: O(log_10(x))
+ * Space: O(1) */
 class Solution {
 public:
   bool isPalindrome(int x) {

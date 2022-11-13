@@ -1,6 +1,5 @@
-#include <string>
-using namespace std;
-
+/* Time: O(log_10(x))
+ * Space: O(log_10(x)) */
 class Solution {
 public:
   bool isPalindrome(int x) {
