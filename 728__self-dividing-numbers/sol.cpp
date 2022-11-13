@@ -1,4 +1,3 @@
-
 /* Time Complexity: O((R - L) * logR)
  * Space Complexity: O(R - L) */
 class Solution {
