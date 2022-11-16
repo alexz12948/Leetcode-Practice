@@ -50,8 +50,17 @@ def generate_folder(problem_number: int, problem_title: str, problem_md: str):
     file.write(problem_md)
 
   with open(f'{problem_dir}/sol.cpp', 'w') as file:
-    file.write('''/* Time: O()
- * Space: O() */
+    file.write('''/*
+Explanation of Solution
+-----------------------
+
+
+
+Complexity
+----------
+Time: O()
+Space: O() 
+*/
 class Solution {
 public:
 
