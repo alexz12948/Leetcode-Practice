@@ -1,5 +1,14 @@
-/* Time: O(N) where N is the size of the input vector
- * Space: O(1) */
+/* 
+Explanation of Solution
+-----------------------
+
+This uses a greedy approach to determine the maximum subarray size
+
+Complexity
+----------
+Time: O(N) where N is the size of the input vector
+Space: O(1)
+*/
 class Solution {
 public:
   int maxSubArray(vector<int>& nums) {
