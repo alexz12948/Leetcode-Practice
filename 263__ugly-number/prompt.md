@@ -46,6 +46,6 @@ Given an integer `n`, return `true` *if* `n` *is an **ugly number***.
 **Constraints:**
 
 
-* `-231 <= n <= 231 - 1`
+* `-2^31 <= n <= 2^31 - 1`
 
 
