@@ -33,7 +33,12 @@ public:
       negPos[i] = arr1[i] - arr2[i] + i;
     }
 
-    return max4(diffOfMaxAndMin(doublePos, n), diffOfMaxAndMin(doubleNeg, n), diffOfMaxAndMin(posNeg, n), diffOfMaxAndMin(negPos, n));
+    return max4(
+      diffOfMaxAndMin(doublePos, n), 
+      diffOfMaxAndMin(doubleNeg, n), 
+      diffOfMaxAndMin(posNeg, n), 
+      diffOfMaxAndMin(negPos, n)
+    );
   }
   
   // Returns the maximum of 4 integers
