@@ -30,7 +30,7 @@ Given an integer array **sorted** in non-decreasing order, there is exactly one 
 **Constraints:**
 
 
-* `1 <= arr.length <= 104`
-* `0 <= arr[i] <= 105`
+* `1 <= arr.length <= 10^4`
+* `0 <= arr[i] <= 10^5`
 
 
