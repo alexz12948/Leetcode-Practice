@@ -28,12 +28,13 @@ public:
     return ans;
   }
 
-  // Returns true if the number is self dividing
+  // Returns true if `num` is self dividing
   bool isSelfDividing(int num) {
+    int original_value = num;
     int digit;
     while (num) {
       digit = num % 10;
-      if (digit == 0 || left % digit != 0) 
+      if (digit == 0 || original_value % digit != 0) 
         return false;
       num /= 10;
     }
