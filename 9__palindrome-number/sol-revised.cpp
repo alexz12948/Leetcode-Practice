@@ -1,5 +1,16 @@
-/* Time: O(log_10(x))
- * Space: O(1) */
+/* 
+Explanation of Solution
+-----------------------
+
+Reverse half of the number and if it is equal to the other half 
+or the other half / 10 (to account for when there is an
+odd number of digits), then it is a palindrome
+
+Complexity
+----------
+Time: O(log_10(x))
+Space: O(1)
+*/
 class Solution {
 public:
   bool isPalindrome(int x) {
