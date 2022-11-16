@@ -1,8 +1,20 @@
-/* Time: O(logN^2) 
- *   * logN for checking if 2 arrays are equal
- *   * logN for creating the number of digits
- * Space: O(logN) 
- *   * logN for array of digits */
+/* 
+Explanation of Solution
+-----------------------
+
+The basic idea is that we only have to check from 2^0 up to 2^31 since
+we know the upper bound of n. Also, we know that two numbers are the same
+(or can be after reordering) if they contain the same frequency of digits.
+
+Therefore, the algorithm is to generate 31 different powers of 2 and
+compare their digits to see whether or not they are the same
+
+Complexity
+----------
+Time: O(logN^2) --> logN for checking if 2 arrays are equal and 
+                    logN for creating the number of digits
+Space: O(logN) --> logN for array of digits
+*/
 class Solution {
 public:
   bool reorderedPowerOf2(int n) {

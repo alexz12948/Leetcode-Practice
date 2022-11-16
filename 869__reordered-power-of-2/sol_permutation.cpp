@@ -1,10 +1,19 @@
-// Note to self: did this question to see how permutations work in C++
+/* 
+Explanation of Solution
+-----------------------
 
-/* Time: O(logN! * logN)
- *   * logN! for permutations of digits of N
- *   * logN for computing if a number is a power of 2
- * Space: O(logN) 
- *   * logN for array of digits */
+The basic idea is to generate all permutations of the digits of N, ensure
+that the number does not start with 0, and then see whether or not the
+reordered number is a power of 2.
+
+*Note to self:* did this question to see how permutations work in C++
+
+Complexity
+----------
+Time: O(logN! * logN) --> logN! for permutations of digits of N and 
+                          logN for computing if a number is a power of 2
+Space: O(logN) --> logN for array of digits
+*/
 class Solution {
 public:
   // Returns true if nDigits represents a power of 2
