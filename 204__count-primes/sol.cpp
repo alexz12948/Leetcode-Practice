@@ -1,8 +1,20 @@
+/* 
+Explanation of Solution
+-----------------------
+
+This uses the Sieve of Eratosthenes from 2 to n / 2 to calculate
+all of the prime numbers from 2 to n. Then, just iterate over
+the array used in Sieve to determine number of primes
+
+Complexity
+----------
+Time: O(nlogn)
+Space: O(n)
+*/
+
 const int nMax = 10e7;
 bool arr[nMax];
 
-/* Time: O(nlogn)
- * Space: O(n) */
 class Solution {
 public:
   int countPrimes(int n) {
