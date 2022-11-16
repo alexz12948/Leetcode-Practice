@@ -1,5 +1,16 @@
-/* Time: O((R - L) * logR)
- * Space: O(R - L) */
+/*
+Explanation of Solution
+-----------------------
+
+Loop all values from `left` to `right` and determine whether or not
+a number is self dividing. If it is, then add it to the list
+
+Complexity
+----------
+Time: O((R - L) * logR) --> where R and L are the inputted parameters
+Space: O(R - L)
+*/
+
 class Solution {
 public:
   vector<int> selfDividingNumbers(int left, int right) {
@@ -10,21 +21,23 @@ public:
         continue;
       }
 
-      int num = left;
-      int digit;
-      bool is_dividing = true;
-      while (num) {
-        digit = num % 10;
-        if (digit == 0 || left % digit != 0) {
-          is_dividing = false;
-          break;
-        }
-        num /= 10;
-      }
-
-      if (is_dividing) ans.push_back(left);
+      if (isSelfDividing(left))
+        ans.push_back(left);
     }
 
     return ans;
+  }
+
+  // Returns true if the number is self dividing
+  bool isSelfDividing(int num) {
+    int digit;
+    while (num) {
+      digit = num % 10;
+      if (digit == 0 || left % digit != 0) 
+        return false;
+      num /= 10;
+    }
+
+    return true;
   }
 };

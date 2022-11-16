@@ -38,6 +38,6 @@ Given two integers `left` and `right`, return *a list of all the **self-dividing
 **Constraints:**
 
 
-* `1 <= left <= right <= 104`
+* `1 <= left <= right <= 10^4`
 
 
