@@ -42,8 +42,8 @@ Implement [pow(x, n)](http://www.cplusplus.com/reference/valarray/pow/), which c
 
 
 * `-100.0 < x < 100.0`
-* `-231 <= n <= 231-1`
+* `-2^31 <= n <= 2^31-1`
 * `n` is an integer.
-* `-104 <= xn <= 104`
+* `-10^4 <= x^n <= 10^4`
 
 

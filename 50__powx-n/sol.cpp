@@ -1,5 +1,20 @@
-/* Time: O(log(n))
- * Space: O(1) */
+/* 
+Explanation of Solution
+-----------------------
+
+This solution uses the idea of fast modular exponentition
+
+a^n has 2 cases: if n is even or if n is odd
+* If even, a^n can be written as (a^(n/2))^2
+* If odd, a^n can be written as a*a^(n-1)
+
+Using this idea, you can compute an exponentiation in logN time
+
+Complexity
+----------
+Time: O(log(n))
+Space: O(1)
+*/
 class Solution {
 public:
   double myPow(double x, int n) {
