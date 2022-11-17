@@ -27,10 +27,11 @@ public:
     if (n == 1)
       return 0;
 
-    unordered_map<int,int> idxMap; // (count, index)
-    idxMap.insert({0, -1});
     int cnt = 0, ans = 0;
+    unordered_map<int,int> idxMap; // (count, index)
 
+    // This is to help with math for when the entire array is valid
+    idxMap.insert({0, -1});
     for (int i = 0; i < n; i++) {
       cnt += nums[i] == 1 ? 1 : -1;
 
