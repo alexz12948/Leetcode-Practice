@@ -33,17 +33,12 @@ public:
       negPos[i] = arr1[i] - arr2[i] + i;
     }
 
-    return max4(
+    return max({
       diffOfMaxAndMin(doublePos, n), 
       diffOfMaxAndMin(doubleNeg, n), 
       diffOfMaxAndMin(posNeg, n), 
       diffOfMaxAndMin(negPos, n)
-    );
-  }
-  
-  // Returns the maximum of 4 integers
-  int max4(int n1, int n2, int n3, int n4) {
-    return max(max(n1, n2), max(n3, n4));
+    });
   }
 
   // Finding the difference between the maximum and minimum values in `arr`
