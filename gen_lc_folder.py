@@ -33,7 +33,7 @@ options.headless = True
 options.log_level = 3
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
-def generate_folder(problem_number: int, problem_title: str, problem_md: str):
+def generate_folder(problem_number: int, problem_title: str, problem_md: str, code: str):
   '''
   generate_folder
 
@@ -60,11 +60,7 @@ Complexity
 ----------
 Time: O()
 Space: O() 
-*/
-class Solution {
-public:
-
-};''')
+*/\n''' + code)
 
 def scrape_prompt(lc_problem_url: str) -> str:
   '''
@@ -80,8 +76,13 @@ def scrape_prompt(lc_problem_url: str) -> str:
     )
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
-    problem_md = soup.find("div", {"class": "content__u3I1 question-content__JfgR"})
-    return markdownify(str(problem_md))
+    problem = soup.find("div", {"class": "content__u3I1 question-content__JfgR"})
+    code = soup.findAll("pre", {"class": "CodeMirror-line", "role": "presentation"})
+    code_text = ""
+    for tag in code:
+      # This removes all non-breaking spaces; turns 4 spaces to 2
+      code_text += tag.get_text().replace("\u00A0", '') + '\n'
+    return markdownify(str(problem)), code_text
   except Exception as e:
     print('A problem occured\n' + e)
     driver.quit()
@@ -95,8 +96,8 @@ def main():
     if problem["stat"]["frontend_question_id"] == lc_question_number:
       question_title_slug = problem["stat"]["question__title_slug"]
       url = ALGORITHMS_BASE_URL + question_title_slug
-      problem_md = scrape_prompt(url)
-      generate_folder(lc_question_number, question_title_slug, problem_md)
+      problem_md, code_text = scrape_prompt(url)
+      generate_folder(lc_question_number, question_title_slug, problem_md, code_text)
 
 if __name__ == "__main__":
   main()
