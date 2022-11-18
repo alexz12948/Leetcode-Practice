@@ -86,7 +86,8 @@ def scrape_prompt(lc_problem_url: str) -> str:
             "pre", {"class": "CodeMirror-line", "role": "presentation"})
         code_text = ""
         for tag in code:
-            code_text += tag.get_text() + '\n'
+            # Replaces all non-breaking spaces with spaces
+            code_text += tag.get_text().replace("\u00A0", ' ') + '\n'
         return markdownify(str(problem)), code_text
     except Exception as e:
         print('A problem occured\n' + e)
