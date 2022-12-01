@@ -53,17 +53,23 @@ def generate_folder(problem_number: int, problem_title: str, problem_md: str, co
         file.write(problem_md)
 
     with open(f'{problem_dir}/sol.cpp', 'w') as file:
-        file.write('''/*
-Explanation of Solution
------------------------
+        file.write(code)
 
+    with open(f'{problem_dir}/lc_post.md', 'w') as file:
+        file.write('''Title: C++ || Faster than TODO || Easy to Understand with Explanation
+Tags: c++, easy-understanding, clean code
+### Intuition\n\n\n
+### Approach\n\n\n
+### Complexity
 
+**Time Complexity:** O()
+**Space Complexity:** O()
 
-Complexity
-----------
-Time: O()
-Space: O() 
-*/\n''' + code)
+### Code
+
+```c++
+
+```''')
 
 
 def scrape_prompt(lc_problem_url: str) -> str:
