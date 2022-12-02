@@ -1,4 +1,4 @@
-Title: C++ || Faster than 100% || Easy to Understand with Explanation
+Title: C++ || Easy to Understand with Explanation
 Tags: c++, easy-understanding, clean code, string
 
 ### Intuition
