@@ -56,8 +56,8 @@ def generate_folder(problem_number: int, problem_title: str, problem_md: str, co
         file.write(code)
 
     with open(f'{problem_dir}/lc_post.md', 'w') as file:
-        file.write('''Title: C++ || Faster than TODO || Easy to Understand with Explanation
-Tags: c++, easy-understanding, clean code
+        file.write('''Title: C++ || Easy to Understand with Explanation
+Tags: c++\n, easy-understanding, clean code
 ### Intuition\n\n\n
 ### Approach\n\n\n
 ### Complexity
