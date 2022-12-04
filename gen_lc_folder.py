@@ -69,7 +69,6 @@ Tags: cpp, c++, easy-understanding, clean code, beginner, beginner friendly, eas
 ### Code
 
 ```c++
-
 ```''')
 
 
