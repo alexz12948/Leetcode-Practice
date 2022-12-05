@@ -1,25 +1,3 @@
-/*
-Explanation of Solution
------------------------
-
-This is a modified version of the first greater element question
-
-The idea is that we only add the height to the stack if the 
-height is smaller than the bar at the top of the stack, which
-means that the current bar is shorter than the previous bar
-in the stack. Therefore, if we find a bar taller than the
-one at the top of the stack, we know that it is bounded by
-the current height and the height below the top of the stack's height
-
-This means that we can just pop off the current height and add the
-resulting trapped water to the stack
-
-Complexity
-----------
-Time: O(n)
-Space: O(n) 
-*/
-
 #define HEIGHT first
 #define IDX second
 typedef pair<int,int> pii;
