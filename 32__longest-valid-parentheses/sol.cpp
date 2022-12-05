@@ -1,29 +1,4 @@
-/*
-Explanation of Solution
------------------------
-
-This is a modified version of the valid parenthesis
-problem
-
-The basic idea is that you want to be pushing the indices
-of the opening brackets and if you encounter a closing
-bracket, then you want to figure out the difference between
-the values assuming that the stack is not empty.
-
-If the stack is empty, that means that we would have no
-idea whether or not the next valid parenthesis is. We use
-the stacks top value after it gets popped off to determine
-how long the string actually was (since if char != '(', then
-idx will get popped off which is ideally the opening bracket)
-
-Complexity
-----------
-Time: O(n)
-Space: O(n) 
-*/
-
 #define OPEN_BRACKET '('
-#define CLOSE_BRACKET ')'
 
 class Solution {
 public:
