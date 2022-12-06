@@ -99,6 +99,7 @@ def generate_folder(problem_number: int, problem_title: str, problem_md: str, co
 # Code
 
 ```c++
+
 ```''')
 
 
