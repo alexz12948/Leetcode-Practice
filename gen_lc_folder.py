@@ -100,7 +100,9 @@ def generate_folder(problem_number: int, problem_title: str, problem_md: str, co
 
 ```c++
 
-```''')
+```
+
+**PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁**''')
 
 
 def find_problem_markdown(soup: BeautifulSoup) -> str:
