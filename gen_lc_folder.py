@@ -178,7 +178,7 @@ def scrape_prompt(lc_problem_url: str) -> str:
         soup = BeautifulSoup(html, 'html.parser')
         return find_problem_markdown(soup), find_code_snippet(soup)
     except Exception as e:
-        print('A problem occured\n' + e)
+        print('A problem occured\n', e)
         driver.quit()
 
 
