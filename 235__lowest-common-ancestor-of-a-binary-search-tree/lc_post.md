@@ -1,0 +1,1 @@
+This is the best solution and super easy to understand. Idt I could do better [link](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/solutions/64980/c-recursive-and-iterative/?envType=study-plan&id=level-1&orderBy=most_votes)
