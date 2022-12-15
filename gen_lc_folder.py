@@ -91,6 +91,7 @@ def generate_folder(problem_number: int, problem_title: str, problem_md: str, co
 # PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁\n
 # Intuition\n\n\n
 # Approach\n\n\n
+# Example\n\n\n
 # Complexity
 
 **Time Complexity:** $$O()$$
