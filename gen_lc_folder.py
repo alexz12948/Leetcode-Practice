@@ -170,13 +170,13 @@ def scrape_prompt(lc_problem_url: str) -> str:
 
 def main():
     args = parse_args()
-    if (args.question_number != -1):
+    if args.question_number != -1:
         lc_question_number = args.question_number
     else:
         lc_question_number = int(
             input("Enter the question you are looking for: "))
 
-    if (lc_directory_exists(lc_question_number)):
+    if lc_directory_exists(lc_question_number):
         print(
             f"Problem: Directory already exists for question number {lc_question_number}")
         return
