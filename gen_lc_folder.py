@@ -16,6 +16,7 @@ import os
 import requests
 import json
 import re
+import shutil
 from markdownify import markdownify
 from bs4 import BeautifulSoup, element
 from selenium import webdriver
@@ -86,24 +87,7 @@ def generate_folder(problem_number: int, problem_title: str, problem_md: str, co
     with open(f'{problem_dir}/sol.cpp', 'w') as file:
         file.write(code)
 
-    with open(f'{problem_dir}/lc_post.md', 'w') as file:
-        file.write('''C++ || Easy to Understand with In-Depth Explanation and Examples || O(TODO)\n
-# PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁\n
-# Intuition\n\n\n
-# Approach\n\n\n
-# Example\n\n\n
-# Complexity
-
-**Time Complexity:** $$O()$$
-**Space Complexity:** $$O()$$
-
-# Code
-
-```c++
-
-```
-
-**PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁**''')
+    shutil.copyfile('lc_post_template.md', f'{problem_dir}/lc_post.md')
 
 
 def find_problem_markdown(soup: BeautifulSoup) -> str:
