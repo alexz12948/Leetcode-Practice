@@ -1,44 +1,28 @@
-Title: C++ || Easy to Understand with In-Depth Explanation and Examples || O(N)
+C++ || Easy to Understand with In-Depth Explanation and Examples || O(N)
 
-# PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁
+#### Table of Contents
+
+- [TL;DR](#tldr)
+  - [Code](#code)
+  - [Complexity](#complexity)
+- [In Depth Analysis](#in-depth-analysis)
+  - [Intuition](#intuition)
+  - [Approach](#approach)
+  - [Example](#example)
+- [Cleaner Code](#cleaner-code)
 
 **NOTE TO READER: There is a clean solution at the bottom and a link to another solution**
 
-# Intuition
+# TL;DR
 
-Create a new linked list and keep track of the front of the new list and the back of the old list. Continuously move items from the back of the old list to the front of the new one and return once the old list is empty.
+Create a new list and continuously move elements from the front of the original list to the front of the new list
 
-# Approach
-
-First, we need to ensure that there are at least 2 elements in the list. If not, we can just return the head since nothing needed to be reversed.
-
-Then, I set up the algorithm by:
-1. Setting the new head equal to the second element
-2. Setting a temporary pointer equal to the original head
-3. Updating the head to be the 3rd element in the list
-4. Updating the new head's next value to be the temporary pointer since it needs to go to the back of the new list
-5. Updating the temporary pointers next to be `nullptr` since it is now at the end of the list
-
-This is a challenging problem so lets just do the first example with nodes `[1,2,3,4,5]`:
-1. Set the new head equal to `2`
-2. Set a tmp pointer equal to `1`
-3. Update the head of the list to be `3`
-4. Update `2`'s next value to be `1`
-5. Update the tmp pointer (`1`) next to be `nullptr`
-
-This yields us the state `[3,4,5]` of the original list and `[2,1]` in the new list
-
-Now we can iterate through the remainder of the list by pushing the first element in the old list onto the new list and moving the old list's pointer down one. We continue this process until we have iterated through the old list
-
-# Complexity
-
-**Time Complexity:** $$O(N)$$
-**Space Complexity:** $$O(1)$$
-
-# Code
+## Code
 
 ```c++
-ListNode* reverseList(ListNode* head) {
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
         if (head == nullptr || head->next == nullptr) 
             return head;
 
@@ -55,7 +39,62 @@ ListNode* reverseList(ListNode* head) {
 
         return new_head;
     }
+};
 ```
+
+## Complexity
+
+**Time Complexity:** $$O(N)$$
+**Space Complexity:** $$O(1)$$
+
+**PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁**
+
+---
+
+# In Depth Analysis
+
+## Intuition
+
+Create a new linked list and keep track of the front of the new list and the back of the old list. Continuously move items from the back of the old list to the front of the new one and return once the old list is empty.
+
+## Approach 
+
+First, we need to ensure that there are at least 2 elements in the list. If not, we can just return the head since nothing needed to be reversed.
+
+Then, I set up the algorithm by:
+1. Setting the new head equal to the first element
+2. Moving the head forward by 1 (to the second element)
+3. Setting the new head's next pointer equal to `nullptr` since it is the current end of the new lists
+
+Now we can iterate through the remainder of the list by pushing the first element in the old list onto the new list and moving the old list's pointer down one. We continue this process until we have iterated through the old list
+
+## Example
+
+Let's use a list where `head = [1,2,3]`
+
+First, we set the `new_head` to be `1` and initialize another pointer that we can use later. Then, we set `head` to be `2` and the `new_head`'s next to be `nullptr` since it is the end of the list
+
+* We know that the original list still has values, so we set `old_head` to be `new_head` (`1`) since we want to keep track of the current first element of the new list. Then, `new_head` gets `head` (`2`: the current front of the list). Then, we move `head` down one value to `nullptr` and `new_head`'s next value to be `old_head` (`2`). Here is what the state looks like:
+
+| head iterator |     |   | head |   |
+|---------------|-----|---|------|---|
+| original list | 1   | 2 | 3    |   |
+| new list      | 2   | 1 |      |   |
+| new iterator  | new |   |      |   |
+
+* We know that the original list still has values, so we set `old_head` to be `new_head` (`2`) since we want to keep track of the current first element of the new list. Then, `new_head` gets `head` (`3`: the current front of the list). Then, we move `head` down one value to `3` and `new_head`'s next value to be `old_head` (`1`). Here is what the state looks like:
+
+| head iterator |     |   |   | head |
+|---------------|-----|---|---|------|
+| original list | 1   | 2 | 3 |      |
+| new list      | 3   | 2 | 1 |      |
+| new iterator  | new |   |   |      |
+
+Since the original list has no more values, we return `new_head`
+
+**PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁**
+
+---
 
 # Cleaner Code
 
