@@ -79,7 +79,7 @@ def generate_folder(problem_number: int, problem_title: str, problem_md: str, co
     Given a problems number, title, prompt, and code generates two files with
     the necessary content and boilerplate for the question
     '''
-    problem_dir = f'{problem_number}__{problem_title}'
+    problem_dir = f'{str(problem_number).zfill(4)}__{problem_title}'
     os.makedirs(problem_dir)
     with open(f'{problem_dir}/prompt.md', 'w') as file:
         file.write(problem_md)
