@@ -16,27 +16,17 @@ public:
             head->next->next == nullptr)
             return head;
 
-        ListNode* even_head = head->next;
-        ListNode* even_ptr = even_head, *odd_ptr = head->next->next;
-        head->next = odd_ptr;
-        even_head->next = nullptr;
-        while (odd_ptr != nullptr && odd_ptr->next != nullptr) {
-            even_ptr->next = odd_ptr->next;
-            even_ptr = even_ptr->next;
+        ListNode *even_head = head->next,
+                 *odd_ptr = head,
+                 *even_ptr = head->next;
 
-            if (even_ptr->next == nullptr) {
-                odd_ptr->next = even_head;
-                break;
-            }
-
+        while (odd_ptr->next != nullptr && even_ptr->next != nullptr) {
             odd_ptr->next = even_ptr->next;
-            even_ptr->next = nullptr;
+            even_ptr->next = odd_ptr->next->next;
             odd_ptr = odd_ptr->next;
+            even_ptr = even_ptr->next;
         }
-
-        if (odd_ptr->next == nullptr)
-            odd_ptr->next = even_head;
-
+        odd_ptr->next = even_head;
         return head;
     }
 };
