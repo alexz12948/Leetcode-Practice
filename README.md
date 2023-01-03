@@ -2,7 +2,7 @@
 
 This repository is meant to keep me on track for practicing leetcode questions and was an interesting scripting project for autogeneration
 
-**Note to reader/repo stalker** I am not writing the most clean/legible code since this either comes from coding competitions or just for my own practice. Also note that my solutions that I come up with are most likely not the most efficient
+**Note to reader/repo stalker** I am not writing the most clean/legible code since this either comes from coding competitions or just for my own practice. Also note that my solutions that I come up with could not be the most efficient
 
 ## Background
 
