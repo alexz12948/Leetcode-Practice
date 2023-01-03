@@ -1,11 +1,6 @@
 Given an array of integers `heights` representing the histogram's bar height where the width of each bar is `1`, return *the area of the largest rectangle in the histogram*.
 
-
- 
-
-
 **Example 1:**
-
 
 ![](https://assets.leetcode.com/uploads/2021/01/04/histogram.jpg)
 
@@ -19,7 +14,6 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 
 **Example 2:**
 
-
 ![](https://assets.leetcode.com/uploads/2021/01/04/histogram-1.jpg)
 
 ```
@@ -28,13 +22,7 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 
 ```
 
- 
-
-
 **Constraints:**
-
 
 * `1 <= heights.length <= 10^5`
 * `0 <= heights[i] <= 10^4`
-
-
