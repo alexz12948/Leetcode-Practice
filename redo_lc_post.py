@@ -29,7 +29,7 @@ for _, dirs, _ in os.walk(os.getcwd()):
 assert old_folder != "", "Couldn't find problem number"
 
 _, second = old_folder.split('__')
-new_folder = str(problem_number + 1).zfill(4) + '__' + second
+new_folder = 'tmp_solution'
 os.rename(old_folder, new_folder)
 os.system(f'./gen_lc_folder.py {problem_number}')
 
