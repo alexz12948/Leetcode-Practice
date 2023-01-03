@@ -1,25 +1,16 @@
 You are given a **0-indexed** integer array `nums` of length `n`.
 
-
 The **average difference** of the index `i` is the **absolute** **difference** between the average of the **first** `i + 1` elements of `nums` and the average of the **last** `n - i - 1` elements. Both averages should be **rounded down** to the nearest integer.
-
 
 Return *the index with the **minimum average difference***. If there are multiple such indices, return the **smallest** one.
 
-
 **Note:**
-
 
 * The **absolute difference** of two numbers is the absolute value of their difference.
 * The **average** of `n` elements is the **sum** of the `n` elements divided (**integer division**) by `n`.
 * The average of `0` elements is considered to be `0`.
 
-
- 
-
-
 **Example 1:**
-
 
 
 ```
@@ -39,7 +30,6 @@ The average difference of index 3 is the minimum average difference so return 3.
 **Example 2:**
 
 
-
 ```
 **Input:** nums = [0]
 **Output:** 0
@@ -49,13 +39,7 @@ The average difference of index 0 is: |0 / 1 - 0| = |0 - 0| = 0.
 
 ```
 
- 
-
-
 **Constraints:**
-
 
 * `1 <= nums.length <= 10^5`
 * `0 <= nums[i] <= 10^5`
-
-

@@ -5,18 +5,19 @@ public:
     int minimumAverageDifference(vector<int>& nums) {
         const int n = nums.size();
 
-        vector<ll> partial_sums(n, nums[0]);
-        for (int i = 1; i < n; i++)
-            partial_sums[i] = partial_sums[i - 1] + nums[i];
+        ll total_sum = 0;
+        for (int i = 0; i < n; i++)
+            total_sum += nums[i];
 
-        int minAvgDiff = INT_MAX, ans = 0;
-        ll first_elements, last_elements, currDiff;
+        int minAvgDiff = INT_MAX, ans = 0, currAvgDiff;
+        ll first_elements, last_elements, currSum = 0;
         for (int i = 0; i < n; i++) {
-            first_elements = partial_sums[i] / (i + 1);
-            last_elements = n - i - 1 != 0 ? (partial_sums.back() - partial_sums[i]) / (n - i - 1) : 0;
-            currDiff = abs(first_elements - last_elements);
-            if (currDiff < minAvgDiff) {
-                minAvgDiff = currDiff;
+            currSum += nums[i];
+            first_elements = currSum / (i + 1);
+            last_elements = n - i - 1 != 0 ? (total_sum - currSum) / (n - i - 1) : 0;
+            currAvgDiff = abs(first_elements - last_elements);
+            if (currAvgDiff < minAvgDiff) {
+                minAvgDiff = currAvgDiff;
                 ans = i;
             }
         }

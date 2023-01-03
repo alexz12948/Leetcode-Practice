@@ -1,59 +1,22 @@
-Title: C++ || Easy to Understand with In-Depth Explanation || O(n)
-Tags: cpp, c++, easy-understanding, clean code, beginner, beginner friendly, easy, prefix sum
+C++ || O(N) || Easy to Understand with In-Depth Explanation and Examples
 
-### PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁
+#### Table of Contents
 
-### Intuition
+- [TL;DR](#tldr)
+  - [Code](#code)
+  - [Complexity](#complexity)
+- [In Depth Analysis](#in-depth-analysis)
+  - [Intuition](#intuition)
+  - [Approach](#approach)
+  - [Example](#example)
 
-By using the brute force approach, you must consistently calculate the sum of elements index 0 --> i and index i+1 -> n - 1. However, by precomputing the prefix sums of every element in O(n), we can calculate the average difference in O(1) time
+# TL;DR
 
-### Approach
+* Precompute the total sum of all the elements in the arrary
+* Iterate through `nums` and calculate the current average difference
+* If the current average difference is less than the lowest minimum so far, we update the answer and the lowest minimum
 
-First, we need to generate the prefix sums array, which means at index i it holds the sum of every element from 0 to i.
-
-After this array is generated we want to follow exactly what the problem defintion says: the average difference is absolute difference between the average of the first i + 1 elements and last n - i - 1 elements. 
-
-To find the average of the first i + 1 elements, we just have to do prefix_sum[i] / (i + 1) by definition
-
-To find the average of the last n - i - 1 elements, we need to take the difference between the sum of the total array and the partial sums up to that point. This is because if you subtract off the first i + 1 elements from the total sum (which is found in the last position), then you must be left with the sum of elements from i + 2 to the end (n - i - 1 elements). There is one caveat which is that when i == n - 1 (the last element) it may cause a divide by 0 error. Therefore, I just added in a check right before if n - i - 1 == 0, then make the last elements sum 0 as well.
-
-### Complexity
-
-**Time Complexity:** O(n)
-**Space Complexity:** O(n)
-
-### Code
-
-```c++
-typedef long long ll;
-
-class Solution {
-public:
-    int minimumAverageDifference(vector<int>& nums) {
-        const int n = nums.size();
-
-        vector<ll> partial_sums(n, nums[0]);
-        for (int i = 1; i < n; i++)
-            partial_sums[i] = partial_sums[i - 1] + nums[i];
-
-        int minAvgDiff = INT_MAX, ans = 0;
-        ll first_elements, last_elements, currDiff;
-        for (int i = 0; i < n; i++) {
-            first_elements = partial_sums[i] / (i + 1);
-            last_elements = n - i - 1 != 0 ? (partial_sums.back() - partial_sums[i]) / (n - i - 1) : 0;
-            currDiff = abs(first_elements - last_elements);
-            if (currDiff < minAvgDiff) {
-                minAvgDiff = currDiff;
-                ans = i;
-            }
-        }
-
-        return ans;
-    }
-};
-```
-
-### Optimized Code with Space O(1)
+## Code
 
 ```c++
 typedef long long ll;
@@ -84,3 +47,52 @@ public:
     }
 };
 ```
+
+## Complexity
+
+**Time Complexity:** $$O(N)$$
+**Space Complexity:** $$O(1)$$
+
+**PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁**
+
+---
+
+# In Depth Analysis
+
+## Intuition
+
+By using the brute force approach, you must consistently calculate the sum of elements index $$0 \rightarrow i$$ and index $$i+1 \rightarrow n - 1$$. However, by precomputing the prefix sums of every element in O(n), we can calculate the average difference in O(1) time. 
+
+**BUT**, we can make the space complexity even better by only computing the sum of all the elements opposed to the prefix sum
+
+## Approach 
+
+First, we want to calculate the sum of all the elements in the array. Since the total could be greater than what could be stored in an integer, we are using a `long long` instead (type defined as `ll`)
+
+Then, we determine the average of the first `i` elements and last `n - i` elements for every `i` as we iterate. The only weird case is when `n - i - 1 == 0`, which means that the average of the last element is `0`
+
+Then, we just calculate what the current average difference is at index `i` and update the index `ans` and the current `minAvgDiff` if necessary. At the end, we just return the index
+
+## Example
+
+Lets use the first example, where `nums = [2,5,3,9,5,3]`
+
+* Calculate total sum
+
+I won't actually go over this, but the total sum is 27
+
+* Iterate through Array
+
+|   i  | currSum |    first_elements    |                  last_elements                  | currDiff | minAvgDiff | ans |
+|:----:|:-------:|:--------------------:|:-----------------------------------------------:|:--------:|:----------:|:---:|
+| Init |    0    |          N/A         |                       N/A                       |    N/A   |   INT_MAX  |  0  |
+|   0  |    2    |  $$\frac{2}{1} = 2$$ |       $$\frac{(27 - 2)}{(6 - 0 - 1)} = 5$$      |     3    |      3     |  0  |
+|   1  |    7    |  $$\frac{7}{2} = 3$$ |       $$\frac{(27 - 7)}{(6 - 1 - 1)} = 5$$      |     2    |      3     |  0  |
+|   2  |    10   | $$\frac{10}{3} = 3$$ |      $$\frac{(27 - 10)}{(6 - 2 - 1)} = 5$$      |     2    |      3     |  0  |
+|   3  |    19   | $$\frac{19}{4} = 4$$ |      $$\frac{(27 - 19)}{(6 - 3 - 1)} = 4$$      |     0    |      0     |  3  |
+|   4  |    24   | $$\frac{24}{5} = 4$$ |      $$\frac{(27 - 24)}{(6 - 4 - 1)} = 3$$      |     1    |      0     |  3  |
+|   5  |    27   | $$\frac{27}{6} = 4$$ | $$\frac{(27 - 27)}{(6 - 5 - 1)} \rightarrow 0$$ |     4    |      0     |  3  |
+
+At the end, we just return `ans = 3` which is the correct answer
+
+**PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁**
