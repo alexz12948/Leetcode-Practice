@@ -1,39 +1,69 @@
-Title: C++ || Easy to Understand with In-Depth Explanation || O(N)
-Tags: cpp, c++, easy-understanding, clean code, beginner, beginner friendly, easy
+C++ || Easy to Understand with In-Depth Explanation and Examples || O(N)
 
-### PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁
+#### Table of Contents
 
-### Intuition
+- [TL;DR](#tldr)
+  - [Code](#code)
+  - [Complexity](#complexity)
+- [In Depth Analysis](#in-depth-analysis)
+  - [Intuition](#intuition)
+  - [Approach](#approach)
+  - [Example](#example)
 
-Split the string into words and then compare the each word based on the definition of a circular sentence
+# TL;DR
 
-### Approach
+Make sure the first and last character **AND** the characters before and after spaces are equal
 
-I used the c++ string stream to parse the sentence into words based on the single space between words. Then, I looped through all the words from 0 to n - 1 (since we can't compare the last word) and compared the last character of word `i` to the first character of word `i + 1`. After that, I checked if the last character of the last word is equal to the first character of the first word. If that is true, then it is a circular sentence
-
-### Complexity
-
-**Time Complexity:** O(n) where n is the number of words in the string
-**Space Complexity:** O(n)
-
-### Code
+## Code
 
 ```c++
 class Solution {
 public:
     bool isCircularSentence(string sentence) {
-        vector<string> words;
-        string currWord;
-        istringstream ss(sentence);
-        while (ss >> currWord)
-            words.push_back(currWord);
+        const int n = sentence.size();
+        for (int i = 0; i < n; i++)
+            if (sentence[i] == ' ' && sentence[i - 1] != sentence[i + 1])
+                return false;
 
-        const int n = words.size();
-        bool is_middle_circular = true;
-        for (int i = 0; i < n - 1; i++)
-            is_middle_circular &= words[i].back() == words[i + 1].front();
-
-        return is_middle_circular && words[0].front() == words[n - 1].back();
+        return sentence[0] == sentence[n - 1];
     }
 };
+
 ```
+
+## Complexity
+
+**Time Complexity:** $$O(N)$$ where $$N$$ is the length of the string
+**Space Complexity:** $$O(1)$$
+
+**PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁**
+
+---
+
+# In Depth Analysis
+
+## Intuition
+
+Iterate through the string and if we encounter a space, make sure that the character before equals the character after
+
+## Approach 
+
+I iterated through the characters in the string and if I came to a space, I checked if the character before did not equal the character after. If that is the case, I know the sentence is not circular and I can return false.
+
+When that is finished, I just need to check if the first character is equal to the last character
+
+## Example
+
+Lets use the first example, where `sentence = "leetcode exercises sound delightful"`
+
+I will be showing all of the checks, specifically at the spaces
+
+| Space # | Char Before | Char After |
+|:-------:|:-----------:|:----------:|
+|    1    |      e      |      e     |
+|    2    |      s      |      s     |
+|    3    |      d      |      d     |
+
+Since all of these are equal, I just check if `sentence[0] == sentence[n - 1]` $$\rightarrow$$ `'l' == 'l'`, so it returns true which is the correct answer
+
+**PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁**
