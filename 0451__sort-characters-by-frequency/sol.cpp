@@ -4,9 +4,8 @@ public:
         const int n = s.size();
 
         unordered_map<char,int> freq;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             freq[s[i]]++;
-        }
 
         vector<pair<char,int>> freq_arr(freq.begin(), freq.end());
 

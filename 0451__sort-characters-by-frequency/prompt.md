@@ -1,14 +1,8 @@
 Given a string `s`, sort it in **decreasing order** based on the **frequency** of the characters. The **frequency** of a character is the number of times it appears in the string.
 
-
 Return *the sorted string*. If there are multiple answers, return *any of them*.
 
-
- 
-
-
 **Example 1:**
-
 
 
 ```
@@ -22,7 +16,6 @@ So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid ans
 **Example 2:**
 
 
-
 ```
 **Input:** s = "cccaaa"
 **Output:** "aaaccc"
@@ -34,7 +27,6 @@ Note that "cacaca" is incorrect, as the same characters must be together.
 **Example 3:**
 
 
-
 ```
 **Input:** s = "Aabb"
 **Output:** "bbAa"
@@ -43,13 +35,7 @@ Note that 'A' and 'a' are treated as two different characters.
 
 ```
 
- 
-
-
 **Constraints:**
 
-
-* `1 <= s.length <= 5 * 105`
+* `1 <= s.length <= 5 * 10^5`
 * `s` consists of uppercase and lowercase English letters and digits.
-
-
