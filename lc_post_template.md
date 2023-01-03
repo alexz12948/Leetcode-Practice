@@ -1,4 +1,4 @@
-C++ || Easy to Understand with In-Depth Explanation and Examples || O(TODO)
+C++ || O(TODO) || Easy to Understand with In-Depth Explanation and Examples
 
 #### Table of Contents
 
