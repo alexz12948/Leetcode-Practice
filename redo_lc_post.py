@@ -8,7 +8,8 @@ Purpose: Allow me to redo a leetcode post by:
 * Finding the folder
 * Renaming it to be one more
 * Generating the problem again
-* Copying over the solution
+* Copying over the solution and old post
+* Removing new directory
 
 Note: This is not meant to be permanent and will be removed later on
 so documentation and error handling is not prevalent in this code!
@@ -33,3 +34,5 @@ os.rename(old_folder, new_folder)
 os.system(f'./gen_lc_folder.py {problem_number}')
 
 shutil.copy(new_folder + '/sol.cpp', old_folder + '/sol.cpp')
+shutil.copy(new_folder + '/lc_post.md', old_folder + '/old_post.md')
+os.removedirs(new_folder)
