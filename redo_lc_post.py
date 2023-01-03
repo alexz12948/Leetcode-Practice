@@ -35,4 +35,4 @@ os.system(f'./gen_lc_folder.py {problem_number}')
 
 shutil.copy(new_folder + '/sol.cpp', old_folder + '/sol.cpp')
 shutil.copy(new_folder + '/lc_post.md', old_folder + '/old_post.md')
-os.removedirs(new_folder)
+shutil.rmtree(new_folder, ignore_errors=False)
