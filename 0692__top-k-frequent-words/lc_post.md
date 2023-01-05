@@ -55,7 +55,7 @@ public:
 
 ## Complexity
 
-**Time Complexity:** $$O(NlogK)$$ where $$N$$ is the number of words
+**Time Complexity:** $$O(KlogN)$$ where $$N$$ is the number of words
 **Space Complexity:** $$O(N)$$
 
 **PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁**
