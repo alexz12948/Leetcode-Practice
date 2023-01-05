@@ -1,43 +1,95 @@
-Title: C++ || Easy to Understand with Explanation
-Tags: c++, easy-understanding, clean code, string
+C++ || O(N) || Easy to Understand with In-Depth Explanation and Examples
 
-### Intuition
+#### Table of Contents
 
-The basic intuition is to do exactly what it is asking for: count all of the vowels
-in the first half and compare it to the number of vowels in the second half
+- [TL;DR](#tldr)
+  - [Code](#code)
+  - [Complexity](#complexity)
+- [In Depth Analysis](#in-depth-analysis)
+  - [Intuition](#intuition)
+  - [Approach](#approach)
+  - [Example](#example)
 
-### Approach
+# TL;DR
 
-We just loop through the first half and second half of the string at the same time. We
-also initialize 2 counter variables: one for the number of vowels in the first half
-and another one for the number of vowels in the second half. We just need to return
-whether the 2 counts are equal after the loop ends to have our answer
+Count the number of vowels in the first half and second half and return if they are equal
 
-### Complexity
-
-Time Complexity: O(n) where n is the length of the string
-Space Complexity: O(1)
-
-### Code
+## Code
 
 ```c++
 class Solution {
-    bool isVowel(char c) {
-        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-               c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
-    }
-    
 public:
     bool halvesAreAlike(string s) {
-        const int half_len = s.size() / 2;
+        const int half = s.size() / 2;
+        unordered_set<char> vowels ({'a', 'e', 'i', 'o', 'u', 
+                                     'A', 'E', 'I', 'O', 'U'});
 
         int vowel_count_first_half = 0, vowel_count_second_half = 0;
-        for (int i = 0; i < half_len; i++) {
-            if (isVowel(s[i])) vowel_count_first_half++;
-            if (isVowel(s[i + half_len])) vowel_count_second_half++;
+        for (int i = 0; i < half; i++) {
+            if (vowels.count(s[i]) == 1) vowel_count_first_half++;
+            if (vowels.count(s[i + half]) == 1) vowel_count_second_half++;
         }
 
         return vowel_count_first_half == vowel_count_second_half;
     }
 };
 ```
+
+## Complexity
+
+**Time Complexity:** $$O(N)$$
+**Space Complexity:** $$O(1)$$
+
+**PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁**
+
+---
+
+# In Depth Analysis
+
+## Intuition
+
+Take a look at the [TL;DR](#tldr)
+
+## Approach 
+
+We just loop through the first half and second half of the string at the same time. We
+also initialize 2 counter variables: one for the number of vowels in the first half
+and another one for the number of vowels in the second half. We return whether or not the two counters are equal
+
+## Example
+
+Let's use the second example, where `s = "textbook"`
+
+* i = 0
+`vowel_count_first_half =  0`
+`vowel_count_second_half = 0`
+
+`s[i] = s[0] = 't'` and `t` is not a vowel so we do nothing
+`s[i + half] = s[0 + 4] = 'b'` and `b` is not a vowel so we do nothing
+
+* i = 1
+`vowel_count_first_half =  0`
+`vowel_count_second_half = 0`
+
+`s[i] = s[1] = 'e'` and we increament the first counter
+`s[i + half] = s[1 + 4] = 'o'` and we increament the second counter
+
+* i = 2
+`vowel_count_first_half =  1`
+`vowel_count_second_half = 1`
+
+`s[i] = s[2] = 'x'` and `x` is not a vowel so we do nothing
+`s[i + half] = s[2 + 4] = 'o'` and we increament the second counter
+
+* i = 3
+`vowel_count_first_half =  1`
+`vowel_count_second_half = 2`
+
+`s[i] = s[3] = 't'` and `t` is not a vowel so we do nothing
+`s[i + half] = s[3 + 4] = 'k'` and `k` is not a vowel so we do nothing
+
+* Aftermath
+
+Since `vowel_count_first_half != vowel_count_second_half`, we return `false` which is the correct answer
+
+**PLEASE UPVOTE IF YOU FIND MY POST HELPFUL!! 🥺😁**
